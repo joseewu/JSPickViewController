@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EB2329102011740E0005F247 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23290F2011740E0005F247 /* AppDelegate.swift */; };
+		EB2329122011740E0005F247 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2329112011740E0005F247 /* ViewController.swift */; };
+		EB2329152011740E0005F247 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB2329132011740E0005F247 /* Main.storyboard */; };
+		EB2329182011740E0005F247 /* JSPickViewController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB2329162011740E0005F247 /* JSPickViewController.xcdatamodeld */; };
+		EB23291A2011740E0005F247 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2329192011740E0005F247 /* Assets.xcassets */; };
+		EB23291D2011740E0005F247 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EB23291B2011740E0005F247 /* LaunchScreen.storyboard */; };
+		EB2329282011740E0005F247 /* JSPickViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2329272011740E0005F247 /* JSPickViewControllerTests.swift */; };
+		EB2329332011740E0005F247 /* JSPickViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2329322011740E0005F247 /* JSPickViewControllerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB2329242011740E0005F247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2329042011740E0005F247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB23290B2011740E0005F247;
+			remoteInfo = JSPickViewController;
+		};
+		EB23292F2011740E0005F247 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB2329042011740E0005F247 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB23290B2011740E0005F247;
+			remoteInfo = JSPickViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		EB23290C2011740E0005F247 /* JSPickViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSPickViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB23290F2011740E0005F247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EB2329112011740E0005F247 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EB2329142011740E0005F247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EB2329172011740E0005F247 /* JSPickViewController.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JSPickViewController.xcdatamodel; sourceTree = "<group>"; };
+		EB2329192011740E0005F247 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB23291C2011740E0005F247 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EB23291E2011740E0005F247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB2329232011740E0005F247 /* JSPickViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSPickViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB2329272011740E0005F247 /* JSPickViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSPickViewControllerTests.swift; sourceTree = "<group>"; };
+		EB2329292011740E0005F247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EB23292E2011740E0005F247 /* JSPickViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JSPickViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB2329322011740E0005F247 /* JSPickViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSPickViewControllerUITests.swift; sourceTree = "<group>"; };
+		EB2329342011740E0005F247 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EB2329092011740E0005F247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB2329202011740E0005F247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB23292B2011740E0005F247 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EB2329032011740E0005F247 = {
+			isa = PBXGroup;
+			children = (
+				EB23290E2011740E0005F247 /* JSPickViewController */,
+				EB2329262011740E0005F247 /* JSPickViewControllerTests */,
+				EB2329312011740E0005F247 /* JSPickViewControllerUITests */,
+				EB23290D2011740E0005F247 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EB23290D2011740E0005F247 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EB23290C2011740E0005F247 /* JSPickViewController.app */,
+				EB2329232011740E0005F247 /* JSPickViewControllerTests.xctest */,
+				EB23292E2011740E0005F247 /* JSPickViewControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EB23290E2011740E0005F247 /* JSPickViewController */ = {
+			isa = PBXGroup;
+			children = (
+				EB23290F2011740E0005F247 /* AppDelegate.swift */,
+				EB2329112011740E0005F247 /* ViewController.swift */,
+				EB2329132011740E0005F247 /* Main.storyboard */,
+				EB2329192011740E0005F247 /* Assets.xcassets */,
+				EB23291B2011740E0005F247 /* LaunchScreen.storyboard */,
+				EB23291E2011740E0005F247 /* Info.plist */,
+				EB2329162011740E0005F247 /* JSPickViewController.xcdatamodeld */,
+			);
+			path = JSPickViewController;
+			sourceTree = "<group>";
+		};
+		EB2329262011740E0005F247 /* JSPickViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB2329272011740E0005F247 /* JSPickViewControllerTests.swift */,
+				EB2329292011740E0005F247 /* Info.plist */,
+			);
+			path = JSPickViewControllerTests;
+			sourceTree = "<group>";
+		};
+		EB2329312011740E0005F247 /* JSPickViewControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EB2329322011740E0005F247 /* JSPickViewControllerUITests.swift */,
+				EB2329342011740E0005F247 /* Info.plist */,
+			);
+			path = JSPickViewControllerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EB23290B2011740E0005F247 /* JSPickViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB2329372011740E0005F247 /* Build configuration list for PBXNativeTarget "JSPickViewController" */;
+			buildPhases = (
+				EB2329082011740E0005F247 /* Sources */,
+				EB2329092011740E0005F247 /* Frameworks */,
+				EB23290A2011740E0005F247 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JSPickViewController;
+			productName = JSPickViewController;
+			productReference = EB23290C2011740E0005F247 /* JSPickViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EB2329222011740E0005F247 /* JSPickViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB23293A2011740E0005F247 /* Build configuration list for PBXNativeTarget "JSPickViewControllerTests" */;
+			buildPhases = (
+				EB23291F2011740E0005F247 /* Sources */,
+				EB2329202011740E0005F247 /* Frameworks */,
+				EB2329212011740E0005F247 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB2329252011740E0005F247 /* PBXTargetDependency */,
+			);
+			name = JSPickViewControllerTests;
+			productName = JSPickViewControllerTests;
+			productReference = EB2329232011740E0005F247 /* JSPickViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EB23292D2011740E0005F247 /* JSPickViewControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB23293D2011740E0005F247 /* Build configuration list for PBXNativeTarget "JSPickViewControllerUITests" */;
+			buildPhases = (
+				EB23292A2011740E0005F247 /* Sources */,
+				EB23292B2011740E0005F247 /* Frameworks */,
+				EB23292C2011740E0005F247 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB2329302011740E0005F247 /* PBXTargetDependency */,
+			);
+			name = JSPickViewControllerUITests;
+			productName = JSPickViewControllerUITests;
+			productReference = EB23292E2011740E0005F247 /* JSPickViewControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EB2329042011740E0005F247 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = com.Nietzsche;
+				TargetAttributes = {
+					EB23290B2011740E0005F247 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					EB2329222011740E0005F247 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EB23290B2011740E0005F247;
+					};
+					EB23292D2011740E0005F247 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EB23290B2011740E0005F247;
+					};
+				};
+			};
+			buildConfigurationList = EB2329072011740E0005F247 /* Build configuration list for PBXProject "JSPickViewController" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EB2329032011740E0005F247;
+			productRefGroup = EB23290D2011740E0005F247 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EB23290B2011740E0005F247 /* JSPickViewController */,
+				EB2329222011740E0005F247 /* JSPickViewControllerTests */,
+				EB23292D2011740E0005F247 /* JSPickViewControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EB23290A2011740E0005F247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB23291D2011740E0005F247 /* LaunchScreen.storyboard in Resources */,
+				EB23291A2011740E0005F247 /* Assets.xcassets in Resources */,
+				EB2329152011740E0005F247 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB2329212011740E0005F247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB23292C2011740E0005F247 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EB2329082011740E0005F247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB2329122011740E0005F247 /* ViewController.swift in Sources */,
+				EB2329102011740E0005F247 /* AppDelegate.swift in Sources */,
+				EB2329182011740E0005F247 /* JSPickViewController.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB23291F2011740E0005F247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB2329282011740E0005F247 /* JSPickViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB23292A2011740E0005F247 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB2329332011740E0005F247 /* JSPickViewControllerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB2329252011740E0005F247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB23290B2011740E0005F247 /* JSPickViewController */;
+			targetProxy = EB2329242011740E0005F247 /* PBXContainerItemProxy */;
+		};
+		EB2329302011740E0005F247 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB23290B2011740E0005F247 /* JSPickViewController */;
+			targetProxy = EB23292F2011740E0005F247 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EB2329132011740E0005F247 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB2329142011740E0005F247 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EB23291B2011740E0005F247 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EB23291C2011740E0005F247 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EB2329352011740E0005F247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EB2329362011740E0005F247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EB2329382011740E0005F247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2QCX6BSC;
+				INFOPLIST_FILE = JSPickViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nietzsche.JSPickViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EB2329392011740E0005F247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2QCX6BSC;
+				INFOPLIST_FILE = JSPickViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nietzsche.JSPickViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EB23293B2011740E0005F247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2QCX6BSC;
+				INFOPLIST_FILE = JSPickViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nietzsche.JSPickViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSPickViewController.app/JSPickViewController";
+			};
+			name = Debug;
+		};
+		EB23293C2011740E0005F247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2QCX6BSC;
+				INFOPLIST_FILE = JSPickViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nietzsche.JSPickViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JSPickViewController.app/JSPickViewController";
+			};
+			name = Release;
+		};
+		EB23293E2011740E0005F247 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2QCX6BSC;
+				INFOPLIST_FILE = JSPickViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nietzsche.JSPickViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JSPickViewController;
+			};
+			name = Debug;
+		};
+		EB23293F2011740E0005F247 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2R2QCX6BSC;
+				INFOPLIST_FILE = JSPickViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Nietzsche.JSPickViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JSPickViewController;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EB2329072011740E0005F247 /* Build configuration list for PBXProject "JSPickViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB2329352011740E0005F247 /* Debug */,
+				EB2329362011740E0005F247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB2329372011740E0005F247 /* Build configuration list for PBXNativeTarget "JSPickViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB2329382011740E0005F247 /* Debug */,
+				EB2329392011740E0005F247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB23293A2011740E0005F247 /* Build configuration list for PBXNativeTarget "JSPickViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB23293B2011740E0005F247 /* Debug */,
+				EB23293C2011740E0005F247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB23293D2011740E0005F247 /* Build configuration list for PBXNativeTarget "JSPickViewControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB23293E2011740E0005F247 /* Debug */,
+				EB23293F2011740E0005F247 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EB2329162011740E0005F247 /* JSPickViewController.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EB2329172011740E0005F247 /* JSPickViewController.xcdatamodel */,
+			);
+			currentVersion = EB2329172011740E0005F247 /* JSPickViewController.xcdatamodel */;
+			path = JSPickViewController.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = EB2329042011740E0005F247 /* Project object */;
+}
