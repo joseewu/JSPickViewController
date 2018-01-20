@@ -29,7 +29,7 @@ class JSPopUpViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        renderUi()
         // Do any additional setup after loading the view.
     }
     func renderUi(){
@@ -45,7 +45,7 @@ class JSPopUpViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.frame
         view.addSubview(blurEffectView)
-        popupContentContainerView.backgroundColor = UIColor.white
+        popupContentContainerView.backgroundColor = UIColor.red
         popupContentContainerView.layer.cornerRadius = 10
         view.addSubview(popupContentContainerView)
         
@@ -53,7 +53,7 @@ class JSPopUpViewController: UIViewController {
         caseListTableView = UITableView(frame: CGRect.zero, style: .plain)
         caseListTableView.delegate = self
         caseListTableView.dataSource = self
-        caseListTableView.register(JSPopUpViewController.self, forCellReuseIdentifier: listCellIdentifier)
+        caseListTableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentifier)
         caseListTableView.tableHeaderView = nil
         caseListTableView.tableFooterView = nil
         view.addSubview(caseListTableView)
@@ -74,9 +74,10 @@ class JSPopUpViewController: UIViewController {
         setConstraints()
     }
     func setConstraints(){
-        let views: [String: Any] = ["popupContentContainerView": popupContentContainerView]
+        let views:[String: Any] = ["popupContentContainerView": popupContentContainerView,
+                                   "caseListTableView":caseListTableView]
         var allConstraints: [NSLayoutConstraint] = [NSLayoutConstraint]()
-        let descHorizontal = "H:|-10-[popupContentContainerView]-10-|"
+        let descHorizontal = "H:|-40-[popupContentContainerView]-40-|"
         let descVertical = "V:|-100-[popupContentContainerView]-100-|"
         let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat:
             descHorizontal,options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
@@ -84,6 +85,14 @@ class JSPopUpViewController: UIViewController {
         let verticleConstraints = NSLayoutConstraint.constraints(withVisualFormat:
             descVertical,options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
         allConstraints += verticleConstraints
+        
+//        let tableHorizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
+//            "H:[popupContentContainerView]-[caseListTableView]-[popupContentContainerView]",options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
+//        allConstraints += tableHorizontalConstraint
+//        let tableVerticalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
+//            "V:[popupContentContainerView]-[caseListTableView]-[popupContentContainerView]",options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
+//         allConstraints += tableVerticalConstraint
+        
         NSLayoutConstraint.activate(allConstraints)
     }
     @objc func cancelInvitation(sender:UIButton){
