@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		EB22D0962012E0F900FB3C1C /* JSPopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22D0952012E0F900FB3C1C /* JSPopUpViewController.swift */; };
+		EB22D09820138B9100FB3C1C /* JSPopUpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB22D09720138B9100FB3C1C /* JSPopUpTableViewCell.swift */; };
 		EB2329102011740E0005F247 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB23290F2011740E0005F247 /* AppDelegate.swift */; };
 		EB2329122011740E0005F247 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2329112011740E0005F247 /* ViewController.swift */; };
 		EB2329182011740E0005F247 /* JSPickViewController.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EB2329162011740E0005F247 /* JSPickViewController.xcdatamodeld */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		EB22D0952012E0F900FB3C1C /* JSPopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSPopUpViewController.swift; sourceTree = "<group>"; };
+		EB22D09720138B9100FB3C1C /* JSPopUpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSPopUpTableViewCell.swift; sourceTree = "<group>"; };
 		EB23290C2011740E0005F247 /* JSPickViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JSPickViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB23290F2011740E0005F247 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2329112011740E0005F247 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 			children = (
 				EB23290F2011740E0005F247 /* AppDelegate.swift */,
 				EB22D0952012E0F900FB3C1C /* JSPopUpViewController.swift */,
+				EB22D09720138B9100FB3C1C /* JSPopUpTableViewCell.swift */,
 				EB2329112011740E0005F247 /* ViewController.swift */,
 				EB2329192011740E0005F247 /* Assets.xcassets */,
 				EB23291B2011740E0005F247 /* LaunchScreen.storyboard */,
@@ -263,6 +266,7 @@
 			files = (
 				EB2329122011740E0005F247 /* ViewController.swift in Sources */,
 				EB2329102011740E0005F247 /* AppDelegate.swift in Sources */,
+				EB22D09820138B9100FB3C1C /* JSPopUpTableViewCell.swift in Sources */,
 				EB22D0962012E0F900FB3C1C /* JSPopUpViewController.swift in Sources */,
 				EB2329182011740E0005F247 /* JSPickViewController.xcdatamodeld in Sources */,
 			);

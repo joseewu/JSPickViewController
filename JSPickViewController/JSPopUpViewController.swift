@@ -59,15 +59,15 @@ class JSPopUpViewController: UIViewController {
         
         titleLabel.text = "選擇案件"
         titleLabel.textColor = UIColor.black
-        titleLabel.font = UIFont(name: "", size: 10)
+        titleLabel.font = UIFont(name: "PingFangSC-Regular", size: 10)
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 1
-        view.addSubview(titleLabel)
+        popupContentContainerView.addSubview(titleLabel)
         
         cancelButton.setTitle("取消", for: .normal)
         cancelButton.setTitleColor(UIColor.blue, for: .normal)
         cancelButton.backgroundColor = UIColor.clear
-        cancelButton.titleLabel?.font = UIFont(name: "", size: 10)
+        cancelButton.titleLabel?.font = UIFont(name: "PingFangSC-Regular", size: 10)
         cancelButton.addTarget(self, action: #selector(JSPopUpViewController.cancelInvitation(sender:)), for: .touchUpInside)
         view.addSubview(cancelButton)
         setConstraints()
@@ -75,6 +75,8 @@ class JSPopUpViewController: UIViewController {
     func setConstraints(){
         popupContentContainerView.translatesAutoresizingMaskIntoConstraints = false
         caseListTableView.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
         
         var allConstraints:[NSLayoutConstraint] = [NSLayoutConstraint]()
         let leading = NSLayoutConstraint(item: popupContentContainerView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 60.0)
@@ -91,6 +93,7 @@ class JSPopUpViewController: UIViewController {
                                         multiplier: 1.0,
                                         constant: mainViewHeight)
         allConstraints.append(height)
+
         popupContentContainerView.addConstraint(height)
         var tableConstraints:[NSLayoutConstraint] = [NSLayoutConstraint]()
         let tableTop = NSLayoutConstraint(item: caseListTableView, attribute: .top, relatedBy: .equal, toItem: popupContentContainerView, attribute: .top, multiplier: 1.0, constant: 40)
@@ -101,6 +104,17 @@ class JSPopUpViewController: UIViewController {
         tableConstraints.append(tableWidth)
         let tableCenterX = NSLayoutConstraint(item: caseListTableView, attribute: .centerX, relatedBy: .equal, toItem: popupContentContainerView, attribute: .centerX, multiplier: 1.0, constant: 0)
         tableConstraints.append(tableCenterX)
+        
+        let titleLabelLeading = NSLayoutConstraint(item: titleLabel, attribute: .leading, relatedBy: .equal, toItem: popupContentContainerView, attribute: .leading, multiplier: 1.0, constant: 60.0)
+        tableConstraints.append(titleLabelLeading)
+        let titleLabelTop = NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: popupContentContainerView, attribute: .top, multiplier: 1.0, constant: 5)
+        tableConstraints.append(titleLabelTop)
+        let titleWidth = NSLayoutConstraint(item: titleLabel, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80)
+        allConstraints.append(titleWidth)
+        
+        let titleHeight = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30)
+        allConstraints.append(titleHeight)
+        
         NSLayoutConstraint.activate(allConstraints)
         view.addConstraints(allConstraints)
         popupContentContainerView.addConstraints(tableConstraints)
@@ -110,7 +124,6 @@ class JSPopUpViewController: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
 }
