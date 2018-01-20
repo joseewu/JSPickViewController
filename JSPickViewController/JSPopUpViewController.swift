@@ -46,7 +46,7 @@ class JSPopUpViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.frame
         view.addSubview(blurEffectView)
-        popupContentContainerView.backgroundColor = UIColor.clear
+        popupContentContainerView.backgroundColor = UIColor.white
         popupContentContainerView.layer.cornerRadius = 10
         view.addSubview(popupContentContainerView)
         
@@ -93,14 +93,14 @@ class JSPopUpViewController: UIViewController {
         allConstraints.append(height)
         popupContentContainerView.addConstraint(height)
         var tableConstraints:[NSLayoutConstraint] = [NSLayoutConstraint]()
-        let tableCenterX = NSLayoutConstraint(item: caseListTableView, attribute: .centerX, relatedBy: .equal, toItem: popupContentContainerView, attribute: .centerX, multiplier: 1.0, constant: 0)
-        tableConstraints.append(tableCenterX)
-        let tableCenterY = NSLayoutConstraint(item: caseListTableView, attribute: .centerY, relatedBy: .equal, toItem: popupContentContainerView, attribute: .centerY, multiplier: 1.0, constant: 0)
-        tableConstraints.append(tableCenterY)
+        let tableTop = NSLayoutConstraint(item: caseListTableView, attribute: .top, relatedBy: .equal, toItem: popupContentContainerView, attribute: .top, multiplier: 1.0, constant: 40)
+        tableConstraints.append(tableTop)
+        let tableBottom = NSLayoutConstraint(item: caseListTableView, attribute: .bottom, relatedBy: .equal, toItem: popupContentContainerView, attribute: .bottom, multiplier: 1.0, constant: -40)
+        tableConstraints.append(tableBottom)
         let tableWidth = NSLayoutConstraint(item: caseListTableView, attribute: .width, relatedBy: .equal, toItem: popupContentContainerView, attribute: .width, multiplier: 1.0, constant: 0)
         tableConstraints.append(tableWidth)
-        let tableHeight = NSLayoutConstraint(item: caseListTableView, attribute: .height, relatedBy: .equal, toItem: popupContentContainerView, attribute: .height, multiplier: 1.0, constant: 0)
-        tableConstraints.append(tableHeight)
+        let tableCenterX = NSLayoutConstraint(item: caseListTableView, attribute: .centerX, relatedBy: .equal, toItem: popupContentContainerView, attribute: .centerX, multiplier: 1.0, constant: 0)
+        tableConstraints.append(tableCenterX)
         NSLayoutConstraint.activate(allConstraints)
         view.addConstraints(allConstraints)
         popupContentContainerView.addConstraints(tableConstraints)
