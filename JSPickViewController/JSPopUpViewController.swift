@@ -34,12 +34,14 @@ class JSPopUpViewController: UIViewController {
     }
     func renderUi(){
         
-        self.view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.clear
         view.isOpaque = false
-        
-//        if mainViewHeight > self.view.frame.size.height-2*Constants.adjustLength(byRatio: 40) {
-//            mainViewHeight = self.view.frame.size.height-2*Constants.adjustLength(byRatio: 40)
-//        }
+        view.translatesAutoresizingMaskIntoConstraints = false
+        if mainViewHeight > self.view.frame.size.height-2*40 {
+            mainViewHeight = self.view.frame.size.height-2*40
+        }else{
+            mainViewHeight = CGFloat(listData.count*40 + 60)
+        }
         
         let blurEffect = UIBlurEffect(style: .light)
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
@@ -53,10 +55,9 @@ class JSPopUpViewController: UIViewController {
         caseListTableView = UITableView(frame: CGRect.zero, style: .plain)
         caseListTableView.delegate = self
         caseListTableView.dataSource = self
+        caseListTableView.frame = view.frame
         caseListTableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentifier)
-        caseListTableView.tableHeaderView = nil
-        caseListTableView.tableFooterView = nil
-        view.addSubview(caseListTableView)
+        popupContentContainerView.addSubview(caseListTableView)
         
         titleLabel.text = "選擇案件"
         titleLabel.textColor = UIColor.black
@@ -74,25 +75,27 @@ class JSPopUpViewController: UIViewController {
         setConstraints()
     }
     func setConstraints(){
+        popupContentContainerView.translatesAutoresizingMaskIntoConstraints = false
+        caseListTableView.translatesAutoresizingMaskIntoConstraints = false
         let views:[String: Any] = ["popupContentContainerView": popupContentContainerView,
-                                   "caseListTableView":caseListTableView]
+                                   "caseListTableView":caseListTableView,
+                                   ]
         var allConstraints: [NSLayoutConstraint] = [NSLayoutConstraint]()
-        let descHorizontal = "H:|-40-[popupContentContainerView]-40-|"
-        let descVertical = "V:|-100-[popupContentContainerView]-100-|"
+        let descHorizontal = "H:|-(<=1)-[popupContentContainerView(>=20)]"
+        let descVertical = "V:|-(<=1)-[popupContentContainerView(100)]"
         let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat:
-            descHorizontal,options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
+            descHorizontal,options:NSLayoutFormatOptions.alignAllCenterY,metrics: nil,views: views)
         allConstraints += horizontalConstraints
         let verticleConstraints = NSLayoutConstraint.constraints(withVisualFormat:
-            descVertical,options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
+            descVertical,options:NSLayoutFormatOptions.alignAllCenterX,metrics: nil,views: views)
         allConstraints += verticleConstraints
         
-//        let tableHorizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
-//            "H:[popupContentContainerView]-[caseListTableView]-[popupContentContainerView]",options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
-//        allConstraints += tableHorizontalConstraint
-//        let tableVerticalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
-//            "V:[popupContentContainerView]-[caseListTableView]-[popupContentContainerView]",options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
-//         allConstraints += tableVerticalConstraint
-        
+        let tableHorizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
+            "H:|[caseListTableView(>=100)]",options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
+        allConstraints += tableHorizontalConstraint
+        let tableVerticalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
+            "V:|[caseListTableView(<=180)]",options: NSLayoutFormatOptions(rawValue: 0),metrics:nil,views: views)
+         allConstraints += tableVerticalConstraint
         NSLayoutConstraint.activate(allConstraints)
     }
     @objc func cancelInvitation(sender:UIButton){
@@ -111,6 +114,7 @@ extension JSPopUpViewController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentifier, for: indexPath)
+        cell.backgroundColor = UIColor.gray
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
