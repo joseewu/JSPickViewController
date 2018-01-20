@@ -35,8 +35,7 @@ class JSPopUpViewController: UIViewController {
     func renderUi(){
         
         view.backgroundColor = UIColor.clear
-        view.isOpaque = false
-        view.translatesAutoresizingMaskIntoConstraints = false
+        view.translatesAutoresizingMaskIntoConstraints = true
         if mainViewHeight > self.view.frame.size.height-2*40 {
             mainViewHeight = self.view.frame.size.height-2*40
         }else{
@@ -55,7 +54,6 @@ class JSPopUpViewController: UIViewController {
         caseListTableView = UITableView(frame: CGRect.zero, style: .plain)
         caseListTableView.delegate = self
         caseListTableView.dataSource = self
-        caseListTableView.frame = view.frame
         caseListTableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentifier)
         popupContentContainerView.addSubview(caseListTableView)
         
@@ -77,26 +75,25 @@ class JSPopUpViewController: UIViewController {
     func setConstraints(){
         popupContentContainerView.translatesAutoresizingMaskIntoConstraints = false
         caseListTableView.translatesAutoresizingMaskIntoConstraints = false
-        let views:[String: Any] = ["popupContentContainerView": popupContentContainerView,
-                                   "caseListTableView":caseListTableView,
-                                   ]
-        var allConstraints: [NSLayoutConstraint] = [NSLayoutConstraint]()
-        let descHorizontal = "H:|-(<=1)-[popupContentContainerView(>=20)]"
-        let descVertical = "V:|-(<=1)-[popupContentContainerView(100)]"
-        let horizontalConstraints = NSLayoutConstraint.constraints(withVisualFormat:
-            descHorizontal,options:NSLayoutFormatOptions.alignAllCenterY,metrics: nil,views: views)
-        allConstraints += horizontalConstraints
-        let verticleConstraints = NSLayoutConstraint.constraints(withVisualFormat:
-            descVertical,options:NSLayoutFormatOptions.alignAllCenterX,metrics: nil,views: views)
-        allConstraints += verticleConstraints
         
-        let tableHorizontalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
-            "H:|[caseListTableView(>=100)]",options: NSLayoutFormatOptions(rawValue: 0),metrics: nil,views: views)
-        allConstraints += tableHorizontalConstraint
-        let tableVerticalConstraint = NSLayoutConstraint.constraints(withVisualFormat:
-            "V:|[caseListTableView(<=180)]",options: NSLayoutFormatOptions(rawValue: 0),metrics:nil,views: views)
-         allConstraints += tableVerticalConstraint
+        var allConstraints:[NSLayoutConstraint] = [NSLayoutConstraint]()
+        let leading = NSLayoutConstraint(item: popupContentContainerView, attribute: .leading, relatedBy: .equal, toItem: view, attribute: .leading, multiplier: 1.0, constant: 60.0)
+        allConstraints.append(leading)
+        let trailing = NSLayoutConstraint(item: popupContentContainerView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: -60.0)
+        allConstraints.append(trailing)
+        let top = NSLayoutConstraint(item: popupContentContainerView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 10.0)
+        allConstraints.append(top)
+        let bottom = NSLayoutConstraint(item: popupContentContainerView,
+                                        attribute: .bottom,
+                                        relatedBy: .equal,
+                                        toItem: self.view,
+                                        attribute: .bottom,
+                                        multiplier: 1.0,
+                                        constant: -60.0)
+        allConstraints.append(bottom)
         NSLayoutConstraint.activate(allConstraints)
+        view.addConstraints(allConstraints)
+        
     }
     @objc func cancelInvitation(sender:UIButton){
         self.dismiss(animated: false, completion: nil)
