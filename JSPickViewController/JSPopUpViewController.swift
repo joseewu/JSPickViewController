@@ -46,12 +46,12 @@ class JSPopUpViewController: UIViewController {
         let blurEffectView = UIVisualEffectView(effect: blurEffect)
         blurEffectView.frame = view.frame
         view.addSubview(blurEffectView)
-        popupContentContainerView.backgroundColor = UIColor.red
+        popupContentContainerView.backgroundColor = UIColor.clear
         popupContentContainerView.layer.cornerRadius = 10
         view.addSubview(popupContentContainerView)
         
-        caseListTableView.separatorStyle = .none
         caseListTableView = UITableView(frame: CGRect.zero, style: .plain)
+        caseListTableView.separatorStyle = .none
         caseListTableView.delegate = self
         caseListTableView.dataSource = self
         caseListTableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentifier)
@@ -81,19 +81,29 @@ class JSPopUpViewController: UIViewController {
         allConstraints.append(leading)
         let trailing = NSLayoutConstraint(item: popupContentContainerView, attribute: .trailing, relatedBy: .equal, toItem: view, attribute: .trailing, multiplier: 1.0, constant: -60.0)
         allConstraints.append(trailing)
-        let top = NSLayoutConstraint(item: popupContentContainerView, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1.0, constant: 10.0)
-        allConstraints.append(top)
-        let bottom = NSLayoutConstraint(item: popupContentContainerView,
-                                        attribute: .bottom,
+        let centerX = NSLayoutConstraint(item: popupContentContainerView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0)
+        allConstraints.append(centerX)
+        let height = NSLayoutConstraint(item: popupContentContainerView,
+                                        attribute: .height,
                                         relatedBy: .equal,
-                                        toItem: self.view,
-                                        attribute: .bottom,
+                                        toItem: nil,
+                                        attribute: .notAnAttribute,
                                         multiplier: 1.0,
-                                        constant: -60.0)
-        allConstraints.append(bottom)
+                                        constant: mainViewHeight)
+        allConstraints.append(height)
+        popupContentContainerView.addConstraint(height)
+        var tableConstraints:[NSLayoutConstraint] = [NSLayoutConstraint]()
+        let tableCenterX = NSLayoutConstraint(item: caseListTableView, attribute: .centerX, relatedBy: .equal, toItem: popupContentContainerView, attribute: .centerX, multiplier: 1.0, constant: 0)
+        tableConstraints.append(tableCenterX)
+        let tableCenterY = NSLayoutConstraint(item: caseListTableView, attribute: .centerY, relatedBy: .equal, toItem: popupContentContainerView, attribute: .centerY, multiplier: 1.0, constant: 0)
+        tableConstraints.append(tableCenterY)
+        let tableWidth = NSLayoutConstraint(item: caseListTableView, attribute: .width, relatedBy: .equal, toItem: popupContentContainerView, attribute: .width, multiplier: 1.0, constant: 0)
+        tableConstraints.append(tableWidth)
+        let tableHeight = NSLayoutConstraint(item: caseListTableView, attribute: .height, relatedBy: .equal, toItem: popupContentContainerView, attribute: .height, multiplier: 1.0, constant: 0)
+        tableConstraints.append(tableHeight)
         NSLayoutConstraint.activate(allConstraints)
         view.addConstraints(allConstraints)
-        
+        popupContentContainerView.addConstraints(tableConstraints)
     }
     @objc func cancelInvitation(sender:UIButton){
         self.dismiss(animated: false, completion: nil)
