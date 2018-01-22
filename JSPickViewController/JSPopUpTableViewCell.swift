@@ -51,6 +51,8 @@ class JSPopUpTableViewCell: UITableViewCell {
     func setConstraints(){
         titlelabel.translatesAutoresizingMaskIntoConstraints = false
         separateLine.translatesAutoresizingMaskIntoConstraints = false
+        uncheckedBut.translatesAutoresizingMaskIntoConstraints = false
+        checkedBut.translatesAutoresizingMaskIntoConstraints = false
         
         var allConstraints:[NSLayoutConstraint] = [NSLayoutConstraint]()
         let leading = NSLayoutConstraint(item: titlelabel, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1.0, constant: 10)
@@ -70,6 +72,24 @@ class JSPopUpTableViewCell: UITableViewCell {
         allConstraints.append(separateTrailing)
         let separateHeight = NSLayoutConstraint(item: separateLine, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 0.5)
         allConstraints.append(separateHeight)
+        
+        let uncheckedTrailing = NSLayoutConstraint(item: uncheckedBut, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -10)
+        allConstraints.append(uncheckedTrailing)
+        let uncheckedCenterY = NSLayoutConstraint(item: uncheckedBut, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0)
+        allConstraints.append(uncheckedCenterY)
+        let uncheckedWidth = NSLayoutConstraint(item: uncheckedBut, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20)
+        allConstraints.append(uncheckedWidth)
+        let uncheckedHeight = NSLayoutConstraint(item: uncheckedBut, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20)
+        allConstraints.append(uncheckedHeight)
+        
+        let checkedTrailing = NSLayoutConstraint(item: checkedBut, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1.0, constant: -10)
+        allConstraints.append(checkedTrailing)
+        let checkedCenterY = NSLayoutConstraint(item: checkedBut, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1.0, constant: 0)
+        allConstraints.append(checkedCenterY)
+        let checkedWidth = NSLayoutConstraint(item: checkedBut, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20)
+        allConstraints.append(checkedWidth)
+        let checkedHeight = NSLayoutConstraint(item: checkedBut, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 20)
+        allConstraints.append(checkedHeight)
         
         NSLayoutConstraint.activate(allConstraints)
         addConstraints(allConstraints)
