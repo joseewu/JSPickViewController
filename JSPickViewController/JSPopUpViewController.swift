@@ -10,18 +10,38 @@ import UIKit
 
 class JSPopUpViewController: UIViewController {
     
-    var popupContentContainerView: UIView = UIView()
-    var cancelButton:UIButton = UIButton()
-    var titleLabel:UILabel = UILabel()
+    private var popupContentContainerView: UIView = UIView()
+    private var cancelButton:UIButton = UIButton()
+    private var titleLabel:UILabel = UILabel()
     private var caseListTableView:UITableView = UITableView()
-    var listData:[String] = [String]()
-    let listCellIdentifier:String = "listCellIdentifier"
+    private var listData:[String] = [String]()
+    private let listCellIdentifier:String = "listCellIdentifier"
     private var mainViewHeight:CGFloat = 10 {
         didSet{
             caseListTableView.reloadData()
         }
     }
     public var clickListCallback:((_ index:Int)->Void)?
+    public var titleText:String?{
+        didSet{
+            titleLabel.text = titleText
+        }
+    }
+    public var titleColor:UIColor?{
+        didSet{
+            titleLabel.textColor = titleColor
+        }
+    }
+    public var cancelColor:UIColor?{
+        didSet{
+            cancelButton.setTitleColor(cancelColor, for: .normal)
+        }
+    }
+    public var cancelText:String?{
+        didSet{
+            cancelButton.setTitle(cancelText, for: .normal)
+        }
+    }
     
     convenience public init(data:[String]){
         self.init()
@@ -57,14 +77,14 @@ class JSPopUpViewController: UIViewController {
         caseListTableView.register(JSPopUpTableViewCell.self, forCellReuseIdentifier: listCellIdentifier)
         popupContentContainerView.addSubview(caseListTableView)
         
-        titleLabel.text = "選擇案件"
+        titleLabel.text = titleText ?? "選擇案件"
         titleLabel.textColor = UIColor.black
         titleLabel.font = UIFont(name: "PingFangSC-Regular", size: 16)
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 1
         popupContentContainerView.addSubview(titleLabel)
         
-        cancelButton.setTitle("取消", for: .normal)
+        cancelButton.setTitle(cancelText ?? "取消", for: .normal)
         cancelButton.setTitleColor(UIColor.blue, for: .normal)
         cancelButton.backgroundColor = UIColor.clear
         cancelButton.titleLabel?.font = UIFont(name: "PingFangSC-Regular", size: 16)
@@ -132,6 +152,9 @@ class JSPopUpViewController: UIViewController {
     @objc func cancelInvitation(sender:UIButton){
         self.dismiss(animated: false, completion: nil)
     }
+    func dismissList(){
+        self.dismiss(animated: false, completion: nil)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -149,6 +172,7 @@ extension JSPopUpViewController:UITableViewDelegate,UITableViewDataSource {
         cell?.tapCheckBtn(isCheck: false)
         cell?.checkButton = {[weak self](index) in
             self?.clickListCallback?(index)
+            
         }
         return cell!
     }
