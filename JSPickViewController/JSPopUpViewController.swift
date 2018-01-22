@@ -36,10 +36,10 @@ class JSPopUpViewController: UIViewController {
         
         view.backgroundColor = UIColor.clear
         view.translatesAutoresizingMaskIntoConstraints = true
+        mainViewHeight = CGFloat(listData.count*50 + 60)
+        
         if mainViewHeight > self.view.frame.size.height-2*40 {
             mainViewHeight = self.view.frame.size.height-2*40
-        }else{
-            mainViewHeight = CGFloat(listData.count*40 + 60)
         }
         
         let blurEffect = UIBlurEffect(style: .light)
@@ -47,19 +47,19 @@ class JSPopUpViewController: UIViewController {
         blurEffectView.frame = view.frame
         view.addSubview(blurEffectView)
         popupContentContainerView.backgroundColor = UIColor.white
-        popupContentContainerView.layer.cornerRadius = 10
+        popupContentContainerView.layer.cornerRadius = 6
         view.addSubview(popupContentContainerView)
         
         caseListTableView = UITableView(frame: CGRect.zero, style: .plain)
         caseListTableView.separatorStyle = .none
         caseListTableView.delegate = self
         caseListTableView.dataSource = self
-        caseListTableView.register(UITableViewCell.self, forCellReuseIdentifier: listCellIdentifier)
+        caseListTableView.register(JSPopUpTableViewCell.self, forCellReuseIdentifier: listCellIdentifier)
         popupContentContainerView.addSubview(caseListTableView)
         
         titleLabel.text = "選擇案件"
         titleLabel.textColor = UIColor.black
-        titleLabel.font = UIFont(name: "PingFangSC-Regular", size: 10)
+        titleLabel.font = UIFont(name: "PingFangSC-Regular", size: 16)
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 1
         popupContentContainerView.addSubview(titleLabel)
@@ -67,9 +67,9 @@ class JSPopUpViewController: UIViewController {
         cancelButton.setTitle("取消", for: .normal)
         cancelButton.setTitleColor(UIColor.blue, for: .normal)
         cancelButton.backgroundColor = UIColor.clear
-        cancelButton.titleLabel?.font = UIFont(name: "PingFangSC-Regular", size: 10)
+        cancelButton.titleLabel?.font = UIFont(name: "PingFangSC-Regular", size: 16)
         cancelButton.addTarget(self, action: #selector(JSPopUpViewController.cancelInvitation(sender:)), for: .touchUpInside)
-        view.addSubview(cancelButton)
+        popupContentContainerView.addSubview(cancelButton)
         setConstraints()
     }
     func setConstraints(){
@@ -105,7 +105,7 @@ class JSPopUpViewController: UIViewController {
         let tableCenterX = NSLayoutConstraint(item: caseListTableView, attribute: .centerX, relatedBy: .equal, toItem: popupContentContainerView, attribute: .centerX, multiplier: 1.0, constant: 0)
         tableConstraints.append(tableCenterX)
         
-        let titleLabelLeading = NSLayoutConstraint(item: titleLabel, attribute: .leading, relatedBy: .equal, toItem: popupContentContainerView, attribute: .leading, multiplier: 1.0, constant: 60.0)
+        let titleLabelLeading = NSLayoutConstraint(item: titleLabel, attribute: .leading, relatedBy: .equal, toItem: popupContentContainerView, attribute: .leading, multiplier: 1.0, constant: 0)
         tableConstraints.append(titleLabelLeading)
         let titleLabelTop = NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: popupContentContainerView, attribute: .top, multiplier: 1.0, constant: 5)
         tableConstraints.append(titleLabelTop)
@@ -114,6 +114,16 @@ class JSPopUpViewController: UIViewController {
         
         let titleHeight = NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30)
         allConstraints.append(titleHeight)
+        
+        let cancelTrailing = NSLayoutConstraint(item: cancelButton, attribute: .trailing, relatedBy: .equal, toItem: popupContentContainerView, attribute: .trailing, multiplier: 1.0, constant: -20)
+        tableConstraints.append(cancelTrailing)
+        let cancelTop = NSLayoutConstraint(item: cancelButton, attribute: .bottom, relatedBy: .equal, toItem: popupContentContainerView, attribute: .bottom, multiplier: 1.0, constant: -10)
+        tableConstraints.append(cancelTop)
+        let cancelWidth = NSLayoutConstraint(item: cancelButton, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 80)
+        allConstraints.append(cancelWidth)
+        
+        let cancelHeight = NSLayoutConstraint(item: cancelButton, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 30)
+        allConstraints.append(cancelHeight)
         
         NSLayoutConstraint.activate(allConstraints)
         view.addConstraints(allConstraints)
@@ -133,9 +143,9 @@ extension JSPopUpViewController:UITableViewDelegate,UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentifier, for: indexPath)
-        cell.backgroundColor = UIColor.gray
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentifier, for: indexPath) as? JSPopUpTableViewCell
+        cell?.titlelabel.text = listData[indexPath.row]
+        return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
