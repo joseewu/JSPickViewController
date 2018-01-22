@@ -13,15 +13,15 @@ class JSPopUpViewController: UIViewController {
     var popupContentContainerView: UIView = UIView()
     var cancelButton:UIButton = UIButton()
     var titleLabel:UILabel = UILabel()
-    var caseListTableView:UITableView = UITableView()
+    private var caseListTableView:UITableView = UITableView()
     var listData:[String] = [String]()
     let listCellIdentifier:String = "listCellIdentifier"
-    var mainViewHeight:CGFloat = 10 {
+    private var mainViewHeight:CGFloat = 10 {
         didSet{
             caseListTableView.reloadData()
         }
     }
-    var clickListCallback:((_ index:Int)->Void)?
+    public var clickListCallback:((_ index:Int)->Void)?
     
     convenience public init(data:[String]){
         self.init()
@@ -145,6 +145,11 @@ extension JSPopUpViewController:UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: listCellIdentifier, for: indexPath) as? JSPopUpTableViewCell
         cell?.titlelabel.text = listData[indexPath.row]
+        cell?.tag = indexPath.row
+        cell?.tapCheckBtn(isCheck: false)
+        cell?.checkButton = {[weak self](index) in
+            self?.clickListCallback?(index)
+        }
         return cell!
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

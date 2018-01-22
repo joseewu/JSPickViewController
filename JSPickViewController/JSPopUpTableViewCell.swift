@@ -13,6 +13,7 @@ class JSPopUpTableViewCell: UITableViewCell {
     private let separateLine:UIView = UIView()
     private let checkedBut:UIButton = UIButton()
     private let uncheckedBut:UIButton = UIButton()
+    var checkButton:((_ checkedIndex:Int)->Void)?
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         renderUi()
@@ -25,7 +26,7 @@ class JSPopUpTableViewCell: UITableViewCell {
         super.prepareForReuse()
         titlelabel.text = ""
     }
-    func renderUi(){
+    private func renderUi(){
         selectionStyle = .none
         titlelabel.text = ""
         titlelabel.textColor = UIColor.black
@@ -38,17 +39,33 @@ class JSPopUpTableViewCell: UITableViewCell {
         
         uncheckedBut.setImage(UIImage(named: "unchecked"), for: .normal)
         uncheckedBut.contentMode = .scaleAspectFill
+        uncheckedBut.addTarget(self, action: #selector(JSPopUpTableViewCell.didTapCheckBox(sender:)), for: .touchUpInside)
         uncheckedBut.clipsToBounds = true
         addSubview(uncheckedBut)
         
         checkedBut.setImage(UIImage(named: "checked"), for: .normal)
         checkedBut.contentMode = .scaleAspectFill
         checkedBut.clipsToBounds = true
+        checkedBut.addTarget(self, action: #selector(JSPopUpTableViewCell.didTapCheckBox(sender:)), for: .touchUpInside)
         addSubview(checkedBut)
         
         setConstraints()
     }
-    func setConstraints(){
+    @objc private func didTapCheckBox(sender:UIButton){
+        if sender == checkedBut {
+            checkedBut.isHidden = true
+            uncheckedBut.isHidden = false
+        }else{
+            checkedBut.isHidden = false
+            uncheckedBut.isHidden = true
+            checkButton?(self.tag)
+        }
+    }
+    public func tapCheckBtn(isCheck:Bool){
+        checkedBut.isHidden = !isCheck
+        uncheckedBut.isHidden = isCheck
+    }
+    private func setConstraints(){
         titlelabel.translatesAutoresizingMaskIntoConstraints = false
         separateLine.translatesAutoresizingMaskIntoConstraints = false
         uncheckedBut.translatesAutoresizingMaskIntoConstraints = false
