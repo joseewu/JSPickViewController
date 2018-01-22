@@ -25,7 +25,6 @@ class ViewController: UIViewController {
     @objc func didTapShowMenu(sender:UIButton){
         let popoutMenu = JSPopUpViewController(data: ["test","test2","test3"])
         popoutMenu.modalPresentationStyle = .overCurrentContext
-        popoutMenu.modalTransitionStyle = .coverVertical
         present(popoutMenu, animated: true, completion: nil)
     }
     override func didReceiveMemoryWarning() {
